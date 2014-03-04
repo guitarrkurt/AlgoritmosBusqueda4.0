@@ -42,7 +42,7 @@ nodo inicio;
 		}	
 	}
 //
-// Encolar con un nod y con un PESO	
+// Encolar con un nod y peso y con un PESO	
 	public void enqueque(int nod,int adyasencia, int peso)
 	{
 		nodo aux = this.inicio;

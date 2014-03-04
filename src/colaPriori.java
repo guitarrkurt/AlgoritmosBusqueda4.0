@@ -1,11 +1,11 @@
-
+/*Esta cola funciona como una cola normal y una cola priorizada segun queramos*/
 public class colaPriori 
 {
 nodo inicio;
 	
 	public colaPriori()
 	{
-		this.inicio = new nodo();
+		this.inicio = new nodo(0);
 	}
 //	
 	public void enqueque(int nod)
@@ -73,7 +73,7 @@ nodo inicio;
 			auxContador = auxContador.getSgt();
 		}
 		//
-		if( contador > 0) // Si fu '0' no hay argumentos que ordenar
+		if( contador > 0) // Si fuï¿½ï¿½ï¿½ '0' no hay argumentos que ordenar
 		{
 			while(contador > 0)
 			{
@@ -110,6 +110,24 @@ nodo inicio;
 			return nod;
 		}else{
 			nod = aux2.getnod();
+			aux.setSgt(null);
+			return nod;
+		}
+	}
+//
+	public nodo dequeueNodo()
+	{
+		nodo aux = inicio;
+		nodo aux2 = aux.getSgt();
+		nodo nod;
+		
+		if(aux2.getSgt() != null)
+		{
+			nod = aux2;
+			inicio = aux2.getSgt();
+			return nod;
+		}else{
+			nod = aux2;
 			aux.setSgt(null);
 			return nod;
 		}
@@ -163,5 +181,15 @@ nodo inicio;
 		System.out.println("");
 	}
 //
+	public int tam()
+	{
+		nodo aux = inicio; int cont = 0;
+		while(aux.getSgt() != null)
+		{
+			cont++;
+			aux = aux.getSgt();
+		}
+		return cont;
+	}
 	
 }

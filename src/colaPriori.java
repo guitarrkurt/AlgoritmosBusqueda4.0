@@ -24,6 +24,24 @@ nodo inicio;
 			aux.setSgt(nuevo);
 		}	
 	}
+//	
+	public void enqueque(nodo nod)
+	{
+		nodo aux = this.inicio;
+		nodo nuevo = new nodo(nod.getnod());
+		
+		if(aux.getSgt() != null)
+		{
+			while(aux.getSgt() != null)
+			{
+				aux = aux.getSgt();
+			}
+			aux.setSgt(nuevo);	
+		}else{
+			aux.setSgt(nuevo);
+		}	
+	}
+//
 // Encolar con un nod y con un PESO	
 	public void enqueque(int nod,int adyasencia, int peso)
 	{
@@ -95,6 +113,32 @@ nodo inicio;
 			aux.setSgt(null);
 			return nod;
 		}
+	}
+//
+	public boolean esta(nodo eBuscar)
+	{
+		nodo aux = inicio;
+		while(aux.getSgt() != null)
+		{
+			if(aux.getnod() == eBuscar.getnod())
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	//
+	public boolean esta(int eBuscar)
+	{
+		nodo aux = inicio;
+		while(aux != null)
+		{
+			if(aux.getnod() == eBuscar)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 //
 	public boolean isEmpty()
